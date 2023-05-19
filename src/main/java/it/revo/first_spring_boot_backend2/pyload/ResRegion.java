@@ -2,6 +2,8 @@ package it.revo.first_spring_boot_backend2.pyload;
 
 import lombok.*;
 
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

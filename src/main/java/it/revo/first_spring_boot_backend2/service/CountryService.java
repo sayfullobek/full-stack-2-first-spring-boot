@@ -72,9 +72,6 @@ public class CountryService {
 
     public Country getOne(Integer id) {
         Optional<Country> byId = countryRepository.findById(id);
-        if (byId.isPresent()) {
-            return byId.get();
-        }
-        return null;
+        return byId.orElse(null);
     }
 }
