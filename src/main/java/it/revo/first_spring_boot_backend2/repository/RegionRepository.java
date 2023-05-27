@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RegionRepository extends JpaRepository<Region, Integer> {
     boolean existsRegionByNameEqualsIgnoreCase(String name);
+    boolean existsRegionByNameEqualsIgnoreCaseAndIdNot(String name, Integer id);
 }

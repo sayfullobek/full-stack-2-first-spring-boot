@@ -23,7 +23,7 @@ public class RegionService {
     CountryRepository countryRepository;
 
     public List<ResRegion> getRegion() {
-        List<Region> regions = regionRepository.findAll(); //basadagi hamma regionlar ro'yxati
+        List<Region> regions = regionRepository.findAll();
         List<ResRegion> resRegionList = new ArrayList<>();
         int tr = 1;
         for (Region region : regions) {
@@ -55,5 +55,36 @@ public class RegionService {
             return new Result("bunday viloyat avvaldan mavjud", false);
         }
         return new Result("bunday davlat mavjud emas", false);
+    }
+
+    public Result editRegion(Integer id, ReqRegion reqRegion) {
+        Optional<Region> byId = regionRepository.findById(id);
+        if (byId.isPresent()) {
+            boolean exist = regionRepository.existsRegionByNameEqualsIgnoreCaseAndIdNot(reqRegion.getName(), id);
+            if (!exist) {
+                Optional<Country> byId1 = countryRepository.findById(reqRegion.getCountryId());
+                if (byId1.isPresent()) {
+                    Region region = byId.get();
+                    Country country = byId1.get();
+                    region.setName(reqRegion.getName());
+                    region.setCountry(country);
+                    regionRepository.save(region);
+                    return new Result("Taxrirlandi", true);
+                }
+                return new Result("xatolik", false);
+            }
+            return new Result("xatolik", false);
+        }
+        return new Result("xatolik", false);
+    }
+
+    public Result deleteRegion(Integer id) {
+        Optional<Region> byId = regionRepository.findById(id);
+        if (byId.isPresent()) {
+            Region region = byId.get();
+            regionRepository.delete(region);
+            return new Result("o'chirildi", true);
+        }
+        return new Result("this is country not found", false);
     }
 }

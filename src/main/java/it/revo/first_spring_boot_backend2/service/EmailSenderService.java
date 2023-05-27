@@ -14,7 +14,7 @@ public class EmailSenderService {
 
     public Result send(ReqEmailSender reqEmailSender) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("sayfullogithub@gmail.com");
+        message.setFrom("dilbekk3@gmail.com");
         message.setTo(reqEmailSender.getToEmail());
         message.setText(reqEmailSender.getBody());
         message.setSubject(reqEmailSender.getSubject());
