@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
@@ -16,6 +16,7 @@
 </head>
 <body>
 <div class="wrapper">
+    <div>
     <form style="width:500px" class="form-signin w-500">
         <h2 class="form-signin-heading">register</h2>
         <input type="text" class="form-control m-1" name="name" id="name" placeholder="name"/>
@@ -27,6 +28,7 @@
         <a class="btn btn-lg btn-primary btn-block" type="button" id="register"
            href="http://localhost:8080/auth/register">register</a>
     </form>
+    </div>
 </div>
 <script th:src="@{/assets/register.js}"></script>
 </body>

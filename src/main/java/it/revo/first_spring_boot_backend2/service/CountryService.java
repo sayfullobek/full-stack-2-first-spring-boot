@@ -51,8 +51,7 @@ public class CountryService {
             Country country = byId.get();
             countryRepository.delete(country);
             return new Result("o'chirildi", true);
-        }
-        return new Result("this is country not found", false);
+        }        return new Result("this is country not found", false);
     }
 
     public Result editCountry(Integer id, ReqCountry reqCountry) {

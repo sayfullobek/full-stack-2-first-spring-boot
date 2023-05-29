@@ -72,10 +72,10 @@ public class AuthService extends HttpServlet {
     }
 
     public String generatedRandom() {
-        String alphabet = "123456789987654321";
+        String alphabet = "10923874566574382901";
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
-        int length = 4;
+        int length = 5;
         for (int i = 0; i < length; i++) {
             int index = random.nextInt(alphabet.length());
             char randomChar = alphabet.charAt(index);
