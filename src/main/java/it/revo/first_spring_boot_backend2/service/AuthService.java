@@ -17,6 +17,7 @@ public class AuthService extends HttpServlet {
     AuthRepository authRepository;
     @Autowired
     EmailSenderService emailService;
+
     String kod = "";
 
     public ResLogin login(ReqLogin reqLogin) throws IOException {
